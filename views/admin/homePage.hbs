@@ -1,0 +1,53 @@
+{{>adminNav}}
+
+<section class="product_section layout_padding">
+  
+
+  {{!-- fffffffffff --}}
+
+  <div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>User <b>Details</b></h2></div>
+                    <div class="col-sm-4">
+                      <a href="/admin/addUsers">  <button type="button"  class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered" id="myTable">
+                <thead>
+                    <tr>
+                        <th style="width: 55px;">Sl.No</th>
+                        
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if users}}
+                    {{#each users}}
+                    <tr>
+                        <td>{{@index}}</td>
+                        
+                        <td>{{username}}</td>
+                        <td>{{email}}</td>
+                        <td>
+                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                            <a href="/admin/updateUsers/{{_id}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a  class="delete" title="Delete" data-toggle="tooltip"><i title="Delete" onclick="handleDelete('{{_id}}')" id="deleteIcon" class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                        {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 
+        
+ 
+
+</section>
