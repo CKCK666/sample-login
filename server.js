@@ -40,11 +40,11 @@ app.use(session({
 
 app.use("/",userRoutes)
 app.use("/admin",adminRoutes)
-const PORT=5000
+const PORT=5000 || PORT
  
 
 
 app.listen(PORT,()=>{
-  
-    console.log("server is running.....".bgGreen)
+  console.log(`server running on http://localhost:${PORT}`.bgGreen)
+    
 })

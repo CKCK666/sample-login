@@ -32,7 +32,6 @@ const signUp = async (req, res) => {
 
       req.session.loggedIn = true;
       req.session.user = userData;
-      console.log(req.session);
       res.json({ success: true, message: 'Form submitted successfully!' });
     } else {
       res.json({ success: false, message: 'Email already exists' });

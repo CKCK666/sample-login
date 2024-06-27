@@ -136,16 +136,16 @@ const getAdminHome=async(req,res)=>{
   try {
       let userData={}
       let {userId,email,username}=req.body
-    
-     if(req.body.password.length){
+    console.log(req.body)
+     if(req.body.password && req.body.password.length){
       const hashedPassword= await bcrypt.hash(password, 10)
       userData.password=hashedPassword
      }
      
       const objectIdToUpdate = new ObjectId(userId);
-     let emailExist= await db.get().collection("cln_users").findOne({email})
+     let userExist= await db.get().collection("cln_users").findOne({email,_id:{$ne:objectIdToUpdate}})
    
-     if(!emailExist){
+     if(!userExist){
      
         userData={
           ...userData,
